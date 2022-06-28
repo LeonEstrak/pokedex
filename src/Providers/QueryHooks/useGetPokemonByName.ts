@@ -21,11 +21,11 @@ interface GetPokemonByNameResponseShape {
     weight: number;
     base_experience: number;
     pokemon_species_id: number;
-  };
+  }[];
 }
 
-function useGetPokemonByName(name: string) {
-  return useQuery(GET_POKEMON_BY_NAME, {
+export default function useGetPokemonByName(name: string) {
+  return useQuery<GetPokemonByNameResponseShape>(GET_POKEMON_BY_NAME, {
     variables: {
       name: name,
     },
