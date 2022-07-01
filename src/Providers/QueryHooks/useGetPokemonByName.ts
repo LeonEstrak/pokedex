@@ -5,10 +5,6 @@ const GET_POKEMON_BY_NAME = gql`
     pokemon_v2_pokemon(where: { name: { _eq: $name } }) {
       id
       name
-      height
-      weight
-      base_experience
-      pokemon_species_id
     }
   }
 `;
@@ -17,10 +13,6 @@ interface GetPokemonByNameResponseShape {
   pokemon_v2_pokemon: {
     id: number;
     name: string;
-    height: number;
-    weight: number;
-    base_experience: number;
-    pokemon_species_id: number;
   }[];
 }
 
