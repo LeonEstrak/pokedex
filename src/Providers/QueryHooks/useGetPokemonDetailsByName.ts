@@ -30,7 +30,7 @@ interface GetPokemonDetailsByNameResponseShape {
   }[];
 }
 
-export default function useGetPokemonByName(name: string) {
+export default function useGetPokemonDetailsByName(name: string) {
   return useQuery<GetPokemonDetailsByNameResponseShape>(
     GET_POKEMON_DETAILS_BY_NAME,
     {
