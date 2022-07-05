@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 
 const GET_POKEMON_BY_NAME = gql`
   query GET_POKEMON_BY_NAME($name: String!) {
-    pokemon_v2_pokemon(where: { name: { _eq: $name } }) {
+    pokemon: pokemon_v2_pokemon(where: { name: { _eq: $name } }) {
       id
       name
     }
@@ -10,7 +10,7 @@ const GET_POKEMON_BY_NAME = gql`
 `;
 
 interface GetPokemonByNameResponseShape {
-  pokemon_v2_pokemon: {
+  pokemon: {
     id: number;
     name: string;
   }[];

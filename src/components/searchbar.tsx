@@ -7,8 +7,6 @@ function Searchbar() {
   function handleOnClick() {
     if (pokemonName.trim()) {
       navigate("/pokemon/" + pokemonName.trim().toLowerCase());
-    } else {
-      navigate("/" + pokemonName.trim().toLowerCase());
     }
   }
   return (

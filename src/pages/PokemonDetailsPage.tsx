@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
 import useGetPokemonDetailsByName from "../Providers/QueryHooks/useGetPokemonDetailsByName";
 import ErrorPage from "./ErrorPage";
+import LoadingPage from "./LoadingPage";
 export default function PokemonDetailsPage() {
   const { name } = useParams();
 
-  const { data } = useGetPokemonDetailsByName(String(name));
+  const { loading, error, data } = useGetPokemonDetailsByName(String(name));
 
-  if (data?.pokemon_v2_pokemon.length === 0) {
+  if (loading) {
+    return <LoadingPage />;
+  } else if (data?.pokemon.length === 0 || error) {
     return <ErrorPage />;
   } else {
     const imageURL = "https://img.pokemondb.net/artwork/vector/large/".concat(
