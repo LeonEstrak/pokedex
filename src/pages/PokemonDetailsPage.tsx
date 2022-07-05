@@ -53,14 +53,11 @@ export default function PokemonDetailsPage() {
       name?.toLowerCase() + ".jpg"
     );
     return (
-      <div className="h-screen bg-stone-800 flex items-center justify-center">
-        <div className="w-4/5 h-4/5 bg-white rounded-2xl flex items-center justify-center m-2">
-          <img
-            className="scale-50 max-w-3/4 max-h-3/4"
-            alt="pokemon"
-            src={imageURL}
-          />
+      <div className="h-screen bg-slate-800 flex ">
+        <div className="w-1/2.5 h-1/1 bg-white rounded-2xl flex items-center justify-center m-10">
+          <img className=" max-w-3/4 max-h-3/4" alt="pokemon" src={imageURL} />
         </div>
+        <div className="w-1/2 h-1/3 bg-slate-200 rounded-2xl flex items-center justify-center m-10"></div>
       </div>
     );
   }
