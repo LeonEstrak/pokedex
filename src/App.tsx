@@ -11,16 +11,15 @@ const client = new ApolloClient({
 });
 
 function App() {
-  return (
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/pokemon/:name" element={<PokemonDetailsPage />} />
-        </Routes>
-      </BrowserRouter>
-    </ApolloProvider>
+  const router = (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/pokemon/:name" element={<PokemonDetailsPage />} />
+      </Routes>
+    </BrowserRouter>
   );
+  return <ApolloProvider client={client} children={router} />;
 }
 
 export default App;

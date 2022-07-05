@@ -4,6 +4,13 @@ import { useNavigate } from "react-router-dom";
 function Searchbar() {
   const [pokemonName, setPokemonName] = useState("");
   const navigate = useNavigate();
+  function handleOnClick() {
+    if (pokemonName.trim()) {
+      navigate("/pokemon/" + pokemonName.trim().toLowerCase());
+    } else {
+      navigate("/" + pokemonName.trim().toLowerCase());
+    }
+  }
   return (
     <div className="flex px-4 items-center justify-center">
       <div className="relative mr-3">
@@ -29,16 +36,15 @@ function Searchbar() {
         placeholder="Search"
         value={pokemonName}
         onChange={(e) => setPokemonName(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleOnClick();
+          }
+        }}
         required
       ></input>
       <button
-        onClick={(e) => {
-          if (pokemonName.trim()) {
-            navigate("/pokemon/" + pokemonName.trim().toLowerCase());
-          } else {
-            navigate("/" + pokemonName.trim().toLowerCase());
-          }
-        }}
+        onClick={(e) => handleOnClick()}
         className="inline-flex items-center py-2.5 px-3 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Search
